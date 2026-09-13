@@ -81,7 +81,36 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:#8f8fa1;font-size:1
 </main>
 
 <footer><div class="container foot"><div>© 2026 Worldmate.in. All rights reserved.</div><div>AI Videos • AI Art • E-Books • Stories</div></div></footer>
-</body>
+<div id="authModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#11111a;padding:25px;border-radius:18px;width:100%;max-width:400px;">
+    
+    <button onclick="closeAuth()" style="float:right;background:none;border:0;color:white;font-size:25px;">×</button>
+
+    <h2 id="authTitle" style="color:white;">Log In</h2>
+
+    <input id="authEmail" type="email" placeholder="Email address"
+      style="width:100%;padding:13px;margin:8px 0;box-sizing:border-box;border-radius:8px;border:1px solid #444;background:#222;color:white;">
+
+    <input id="authPassword" type="password" placeholder="Password"
+      style="width:100%;padding:13px;margin:8px 0;box-sizing:border-box;border-radius:8px;border:1px solid #444;background:#222;color:white;">
+
+    <button id="authSubmit" onclick="handleAuth()"
+      style="width:100%;padding:13px;margin-top:10px;border:0;border-radius:8px;cursor:pointer;">
+      Log In
+    </button>
+
+    <p id="authMessage" style="color:white;margin-top:15px;"></p>
+
+    <p style="color:#aaa;text-align:center;">
+      <span id="switchText">Don't have an account?</span>
+      <button id="switchBtn" onclick="switchAuth()"
+        style="background:none;border:0;color:#7db7ff;cursor:pointer;">
+        Create Account
+      </button>
+    </p>
+
+  </div>
+</div></body>
   <script>
 const SUPABASE_URL = 'YOUR_API_URL';
 const SUPABASE_PUBLISHABLE_KEY = 'YOUR_PUBLISHABLE_KEY';
