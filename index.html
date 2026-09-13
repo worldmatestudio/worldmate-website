@@ -120,4 +120,10 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_PUBLISHABLE_KEY
 );
 </script>
+  <script>let authMode = 'login';
+
+function openAuth(mode) {
+  authMode = mode;
+  document.getElementById('authModal').style.display = 'flex';
+}
 </html>
