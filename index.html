@@ -32,7 +32,9 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:#8f8fa1;font-size:1
 <nav><div class="container navin">
 <a class="logo" href="#home">Worldmate<span>.in</span></a>
 <div class="links"><a href="#videos">Videos</a><a href="#art">AI Art</a><a href="#ebooks">E-Books</a><a href="#about">About</a><a href="#contact">Contact</a></div>
-</div></nav>
+<button id="loginBtn" class="btn" onclick="openAuth('login')">Log In</button>
+<button id="signupBtn" class="btn" onclick="openAuth('signup')">Create Account</button>
+<button id="logoutBtn" class="btn" onclick="logout()" style="display:none;">Log Out</button></div></nav>
 
 <main id="home">
 <section class="hero"><div class="container">
