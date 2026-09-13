@@ -166,7 +166,30 @@ function switchAuth() {
 
     message.textContent = 'Login successful!';
     setTimeout(closeAuth, 800);
-  }
+  }async function logout() {
+  await supabaseClient.auth.signOut();
+  updateAuthUI();
+}
+
+async function updateAuthUI() {
+  const { data } = await supabaseClient.auth.getSession();
+  const loggedIn = !!data.session;
+
+  document.getElementById('loginBtn').style.display =
+    loggedIn ? 'none' : 'inline-block';
+
+  document.getElementById('signupBtn').style.display =
+    loggedIn ? 'none' : 'inline-block';
+
+  document.getElementById('logoutBtn').style.display =
+    loggedIn ? 'inline-block' : 'none';
+}
+
+supabaseClient.auth.onAuthStateChange(() => {
+  updateAuthUI();
+});
+
+updateAuthUI();
 }
 }
 }
