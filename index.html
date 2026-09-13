@@ -124,6 +124,12 @@ const supabaseClient = window.supabase.createClient(
 
 function openAuth(mode) {
   authMode = mode;
-  document.getElementById('authModal').style.display = 'flex';
+  document.getElementById('authModal').style.display = 'flex';function closeAuth() {
+  document.getElementById('authModal').style.display = 'none';
+}
+
+function switchAuth() {
+  openAuth(authMode === 'login' ? 'signup' : 'login');
+}
 }
 </html>
