@@ -121,8 +121,110 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_PUBLISHABLE_KEY
 );
 </script>
-  <script>
-  let authMode = 'login';
+<script>
+let authMode = 'login';
+
+function openAuth(mode) {
+  authMode = mode;
+
+  document.getElementById('authModal').style.display = 'flex';
+  document.getElementById('authMessage').textContent = '';
+
+  if (mode === 'signup') {
+    document.getElementById('authTitle').textContent = 'Create Account';
+    document.getElementById('authSubmit').textContent = 'Create Account';
+    document.getElementById('switchText').textContent = 'Already have an account?';
+    document.getElementById('switchBtn').textContent = 'Log In';
+  } else {
+    document.getElementById('authTitle').textContent = 'Log In';
+    document.getElementById('authSubmit').textContent = 'Log In';
+    document.getElementById('switchText').textContent = "Don't have an account?";
+    document.getElementById('switchBtn').textContent = 'Create Account';
+  }
+}
+
+function closeAuth() {
+  document.getElementById('authModal').style.display = 'none';
+}
+
+function switchAuth() {
+  openAuth(authMode === 'login' ? 'signup' : 'login');
+}
+
+async function handleAuth() {
+  const email = document.getElementById('authEmail').value.trim();
+  const password = document.getElementById('authPassword').value;
+  const message = document.getElementById('authMessage');
+
+  if (!email || !password) {
+    message.textContent = 'Please enter your email and password.';
+    return;
+  }
+
+  if (password.length < 6) {
+    message.textContent = 'Password must be at least 6 characters.';
+    return;
+  }
+
+  message.textContent = 'Please wait...';
+
+  if (authMode === 'signup') {
+    const { error } = await supabaseClient.auth.signUp({
+      email: email,
+      password: password
+    });
+
+    if (error) {
+      message.textContent = error.message;
+      return;
+    }
+
+    message.textContent = 'Account created! Check your email.';
+  } else {
+    const { error } = await supabaseClient.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+
+    if (error) {
+      message.textContent = error.message;
+      return;
+    }
+
+    message.textContent = 'Login successful!';
+
+    setTimeout(() => {
+      closeAuth();
+      updateAuthUI();
+    }, 800);
+  }
+}
+
+async function logout() {
+  await supabaseClient.auth.signOut();
+  updateAuthUI();
+}
+
+async function updateAuthUI() {
+  const { data } = await supabaseClient.auth.getSession();
+  const loggedIn = !!data.session;
+
+  document.getElementById('loginBtn').style.display =
+    loggedIn ? 'none' : 'inline-block';
+
+  document.getElementById('signupBtn').style.display =
+    loggedIn ? 'none' : 'inline-block';
+
+  document.getElementById('logoutBtn').style.display =
+    loggedIn ? 'inline-block' : 'none';
+}
+
+supabaseClient.auth.onAuthStateChange(() => {
+  updateAuthUI();
+});
+
+updateAuthUI();
+</script>
 
 function openAuth(mode) {
   authMode = mode;
