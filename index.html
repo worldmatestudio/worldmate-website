@@ -297,4 +297,24 @@ supabaseClient.auth.onAuthStateChange(() => {
 
 updateAuthUI();
 </script>
-</html>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const signup = document.getElementById("signupBtn");
+
+  if (signup) {
+    signup.onclick = function () {
+      const modal = document.getElementById("authModal");
+
+      if (modal) {
+        modal.style.display = "flex";
+
+        const title = document.getElementById("authTitle");
+        const submit = document.getElementById("authSubmit");
+
+        if (title) title.textContent = "Create Account";
+        if (submit) submit.textContent = "Create Account";
+      }
+    };
+  }
+});
+</script></html>
