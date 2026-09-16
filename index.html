@@ -37,6 +37,40 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:#8f8fa1;font-size:1
     <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
   </video>
 </section>
+  <h3 style="color:white;text-align:center;">🎬 Upload Video</h3>
+
+<div style="text-align:center;margin:20px;">
+  <input type="file" id="videoFile" accept="video/*">
+  <button onclick="uploadVideo()" style="margin-top:10px;padding:10px 20px;">
+    Upload
+  </button>
+  <p id="uploadMessage" style="color:white;"></p>
+</div>
+
+<script>
+async function uploadVideo() {
+  const file = document.getElementById('videoFile').files[0];
+  const message = document.getElementById('uploadMessage');
+
+  if (!file) {
+    message.textContent = "Please choose a video first.";
+    return;
+  }
+
+  const fileName = Date.now() + "-" + file.name;
+
+  const { error } = await supabaseClient.storage
+    .from('videos')
+    .upload(fileName, file);
+
+  if (error) {
+    message.textContent = "Upload failed: " + error.message;
+    return;
+  }
+
+  message.textContent = "Video uploaded successfully! ✅";
+}
+</script>
 <body>
 <nav><div class="container navin">
 <a class="logo" href="#home">Worldmate<span>.in</span></a>
