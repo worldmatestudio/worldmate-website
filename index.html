@@ -316,6 +316,27 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
 );
+async function uploadVideo() {
+  const file = document.getElementById('videoFile').files[0];
+
+  if (!file) {
+    alert("Please select a video first.");
+    return;
+  }
+
+  const fileName = Date.now() + "-" + file.name;
+
+  const { error } = await supabaseClient.storage
+    .from('videos')
+    .upload(fileName, file);
+
+  if (error) {
+    alert("Upload failed: " + error.message);
+    return;
+  }
+
+  alert("Video uploaded successfully! ✅");
+}
 </script>
 <script>
 let authMode = 'login';
