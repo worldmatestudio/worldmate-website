@@ -141,14 +141,6 @@ style="max-width:600px;margin:15px auto;background:#18182b;border:1px solid #493
   </button>
   <p id="uploadMessage" style="color:white;"></p>
 </div>
-function showCategory(category) {
-  document.querySelectorAll('[data-category]').forEach(video => {
-    video.style.display =
-      category === 'all' || video.dataset.category === category
-        ? 'block'
-        : 'none';
-  });
-}
 <script>
 async function uploadVideo() {
   const file = document.getElementById('videoFile').files[0];
