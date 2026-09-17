@@ -437,26 +437,7 @@ supabaseClient.auth.onAuthStateChange(() => {
 
 updateAuthUI();
 </script>
-<!-- <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const signup = document.getElementById("signupBtn");
 
-  if (signup) {
-    signup.onclick = function () {
-      const modal = document.getElementById("authModal");
-
-      if (modal) {
-        modal.style.display = "flex";
-
-        const title = document.getElementById("authTitle");
-        const submit = document.getElementById("authSubmit");
-
-        if (title) title.textContent = "Create Account";
-        if (submit) submit.textContent = "Create Account";
-      }
-    };
-  }
-document.getElementById("searchBox").addEventListener("input", function () {
   const query = this.value.toLowerCase().trim();
 
   document.querySelectorAll("h3, h4").forEach(title => {
