@@ -455,6 +455,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     };
   }
+  document.getElementById("searchBox").addEventListener("input", function() {
+  const search = this.value.toLowerCase();
+  document.querySelectorAll("video, iframe").forEach(item => {
+    const text = item.parentElement.innerText.toLowerCase();
+    item.parentElement.style.display = text.includes(search) ? "" : "none";
+  });
+});
 });
 </script> --></html>
 
