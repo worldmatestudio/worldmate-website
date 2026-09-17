@@ -281,7 +281,7 @@ function showCategory(category) {
 <div id="authModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9999;align-items:center;justify-content:center;padding:20px;">
   <div style="background:#11111a;padding:25px;border-radius:18px;width:100%;max-width:400px;">
     
-    <button onclick="closeAuth()" style="float:right;background:none;border:0;color:white;font-size:25px;">×</button>
+    <button type="button" onclick="document.getElementById('authModal').style.display='none';" style="float:right;background:none;border:0;color:white;font-size:25px;cursor:pointer;">×</button>
 
     <h2 id="authTitle" style="color:white;">Log In</h2>
 
