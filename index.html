@@ -436,17 +436,17 @@ supabaseClient.auth.onAuthStateChange(() => {
 });
 
 updateAuthUI();
-</script>
-
+  document.getElementById("searchBox").addEventListener("input", function () {
   const query = this.value.toLowerCase().trim();
 
   document.querySelectorAll("h3, h4").forEach(title => {
     const card = title.closest("div");
     if (!card) return;
-
-    card.style.display =
-      title.textContent.toLowerCase().includes(query) ? "" : "none";
+    card.style.display = title.textContent.toLowerCase().includes(query) ? "" : "none";
   });
+});
+</script>
+
 });
 </script> --></html>
 
