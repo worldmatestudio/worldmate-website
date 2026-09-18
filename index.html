@@ -461,6 +461,7 @@ function switchAuth() {
 }
 
 async function handleAuth() {
+  async function handleAuth() {
   const email = document.getElementById('authEmail').value.trim();
   const password = document.getElementById('authPassword').value;
   const message = document.getElementById('authMessage');
@@ -477,31 +478,35 @@ async function handleAuth() {
 
   message.textContent = 'Connecting to Worldmate...';
 
-  if (authMode === 'signup') {
-    const { error } = await supabaseClient.auth.signUp({
-      email,
-      password
-    });
+  try {
+    if (authMode === 'signup') {
+      const result = await supabaseClient.auth.signUp({
+        email: email,
+        password: password
+      });
 
-    if (error) {
-      message.textContent = error.message;
-      return;
+      if (result.error) {
+        message.textContent = result.error.message;
+        return;
+      }
+
+      message.textContent = 'Account created! Check your email.';
+    } else {
+      const result = await supabaseClient.auth.signInWithPassword({
+        email: email,
+        password: password
+      });
+
+      if (result.error) {
+        message.textContent = result.error.message;
+        return;
+      }
+
+      message.textContent = 'Login successful!';
+      closeAuth();
     }
-
-    message.textContent = 'Account created! Check your email.';
-  } else {
-    const { error } = await supabaseClient.auth.signInWithPassword({
-      email,
-      password
-    });
-
-    if (error) {
-      message.textContent = error.message;
-      return;
-    }
-
-    message.textContent = 'Login successful!';
-    closeAuth();
+  } catch (err) {
+    message.textContent = 'Connection error. Please try again.';
   }
 }
 async function updateAuthUI() {
