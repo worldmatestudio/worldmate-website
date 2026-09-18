@@ -298,6 +298,19 @@ function previewAIPhoto() {
   <label style="color:white;display:block;margin-bottom:8px;">🖼️ E-book Cover</label>
   <input type="file" id="ebookCover" accept="image/*">
   <div id="ebookCoverPreview" style="margin-top:15px;"></div>
+  <script>
+document.getElementById("ebookCover").addEventListener("change", function () {
+  const file = this.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    document.getElementById("ebookCoverPreview").innerHTML =
+      '<img src="' + e.target.result + '" style="width:180px;border-radius:12px;">';
+  };
+  reader.readAsDataURL(file);
+});
+</script>
 </div>
 </section>
 <body>
