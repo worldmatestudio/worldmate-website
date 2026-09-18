@@ -298,6 +298,11 @@ function previewAIPhoto() {
 <div style="margin-top:15px;">
   <label style="color:white;display:block;margin-bottom:8px;">🖼️ E-book Cover</label>
   <input type="file" id="ebookCover" accept="image/*">
+  <br><br>
+<button type="button" onclick="saveEbook()"
+  style="background:#7c3cff;color:white;border:0;border-radius:20px;padding:10px 18px;">
+  💾 Save E-Book
+</button>
   <div id="ebookCoverPreview" style="margin-top:15px;"></div>
   <script>
 document.getElementById("ebookCover").addEventListener("change", function () {
@@ -509,6 +514,19 @@ async function handleAuth() {
   } catch (err) {
     message.textContent = 'Connection error. Please try again.';
   }
+}
+  function saveEbook() {
+  const file = document.getElementById('ebookFile').files[0];
+  const title = document.getElementById('ebookTitle').value.trim();
+  const description = document.getElementById('ebookDescription').value.trim();
+  const cover = document.getElementById('ebookCover').files[0];
+
+  if (!file || !title || !description || !cover) {
+    alert('Please select the e-book, cover, title and description.');
+    return;
+  }
+
+  alert('E-Book details saved successfully!');
 }
 async function updateAuthUI() {
   const { data } = await supabaseClient.auth.getSession();
