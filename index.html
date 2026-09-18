@@ -467,6 +467,55 @@ updateAuthUI();
     card.style.display = title.textContent.toLowerCase().includes(query) ? "" : "none";
   });
 });
+  async function addComment(videoId, inputId, listId) {
+  const input = document.getElementById(inputId);
+  const comment = input.value.trim();
+
+  if (!comment) {
+    alert("Please write a comment.");
+    return;
+  }
+
+  const { error } = await supabaseClient
+    .from("comments")
+    .insert([
+      {
+        video_id: videoId,
+        comment: comment
+      }
+    ]);
+
+  if (error) {
+    alert(error.message);
+    return;
+  }
+
+  input.value = "";
+  loadComments(videoId, listId);
+}
+
+async function loadComments(videoId, listId) {
+  const list = document.getElementById(listId);
+
+  const { data, error } = await supabaseClient
+    .from("comments")
+    .select("*")
+    .eq("video_id", videoId)
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    list.innerHTML = "<p>Unable to load comments.</p>";
+    return;
+  }
+
+  list.innerHTML = data.map(item =>
+    `<div style="background:#222;padding:10px;margin:8px 0;border-radius:10px;color:white;">
+      ${item.comment}
+    </div>`
+  ).join("");
+}
+
+loadComments("second-ai", "commentsList2");
 </script>
 
 });
