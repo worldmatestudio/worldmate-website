@@ -261,12 +261,38 @@ function showCategory(category) {
 </div>
 
 <script>
-function previewAIPhoto() {
+async function previewAIPhoto() {
   const file = document.getElementById("aiPhotoFile").files[0];
+
   if (!file) {
     alert("Please choose a photo first.");
     return;
   }
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", "lotfafcx");
+
+  const response = await fetch(
+    "https://api.cloudinary.com/v1_1/schyhric/image/upload",
+    {
+      method: "POST",
+      body: formData
+    }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    alert(data.error?.message || "Upload failed.");
+    return;
+  }
+
+  document.getElementById("aiPhotoPreview").innerHTML =
+    '<img src="' + data.secure_url + '" style="width:100%;max-width:600px;border-radius:15px;">';
+
+  alert("AI Photo uploaded successfully! 📸");
+}
 
   const reader = new FileReader();
   reader.onload = function(e) {
