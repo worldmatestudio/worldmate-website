@@ -321,7 +321,7 @@ document.getElementById("ebookCover").addEventListener("change", function () {
 <nav><div class="container navin">
 <a class="logo" href="#home">Worldmate<span>.in</span></a>
 <div class="links"><a href="#videos">Videos</a><a href="#art">AI Art</a><a href="#ebooks">E-Books</a><a href="#about">About</a><a href="#contact">Contact</a></div>
-<button id="loginBtn" class="btn" onclick="openAuth('login')">Log In</button>
+<button id="loginBtn" class="btn" onclick="document.getElementById('authModal').style.display='flex'">Log In</button>
 <button id="signupBtn" class="btn" onclick="authMode='signup'; document.getElementById('authModal').style.display='flex'; document.getElementById('authTitle').textContent='Create Account'; document.getElementById('authSubmit').textContent='Create Account';">Create Account</button>
 <button id="logoutBtn" class="btn" onclick="logout()" style="display:none;">Log Out</button></div></nav>
 
