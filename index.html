@@ -252,6 +252,30 @@ function showCategory(category) {
 </button>
   🎬 Upload Video
 </button>
+    <div style="margin-top:15px;">
+  <input type="file" id="aiPhotoFile" accept="image/*">
+  <button type="button" onclick="previewAIPhoto()" style="margin-top:10px;padding:10px 15px;border:0;border-radius:10px;">
+    📸 Add AI Photo
+  </button>
+  <div id="aiPhotoPreview" style="margin-top:15px;"></div>
+</div>
+
+<script>
+function previewAIPhoto() {
+  const file = document.getElementById("aiPhotoFile").files[0];
+  if (!file) {
+    alert("Please choose a photo first.");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    document.getElementById("aiPhotoPreview").innerHTML =
+      '<img src="' + e.target.result + '" style="width:100%;max-width:600px;border-radius:15px;">';
+  };
+  reader.readAsDataURL(file);
+}
+</script>
 <input type="file" id="creatorVideoFile" accept="video/*" style="display:none;" onchange="uploadVideo()">
     <h3 style="color:white;margin-top:25px;">📚 E-Book Management</h3>
 
