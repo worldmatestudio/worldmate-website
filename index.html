@@ -493,7 +493,7 @@ updateAuthUI();
   input.value = "";
   loadComments(videoId, listId);
 }
-
+window.addComment = addComment;
 async function loadComments(videoId, listId) {
   const list = document.getElementById(listId);
 
