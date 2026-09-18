@@ -475,7 +475,7 @@ async function handleAuth() {
     return;
   }
 
-  message.textContent = 'Please wait...';
+  message.textContent = 'Connecting to Worldmate...';
 
   if (authMode === 'signup') {
     const { error } = await supabaseClient.auth.signUp({
