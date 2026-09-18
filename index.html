@@ -514,7 +514,9 @@ async function loadComments(videoId, listId) {
     </div>`
   ).join("");
 }
-
+document.getElementById("postCommentBtn").addEventListener("click", function () {
+  addComment("second-ai", "commentInput2", "commentsList2");
+});
 loadComments("second-ai", "commentsList2");
 </script>
 
