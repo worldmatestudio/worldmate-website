@@ -400,7 +400,13 @@ async function previewAIPhoto() {
     if (!response.ok) {
       throw new Error(data.error?.message || "Upload failed");
     }
+const { error: dbError } = await supabaseClient
+  .from("ai_photos")
+  .insert([{ image_url: data.secure_url }]);
 
+if (dbError) {
+  throw new Error("Photo uploaded, but could not be saved: " + dbError.message);
+}
     document.getElementById("aiPhotosGallery").insertAdjacentHTML(
       "beforeend",
       `<img src="${data.secure_url}"
