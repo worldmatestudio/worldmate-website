@@ -198,13 +198,19 @@ async function uploadVideo() {
 }
 function showCategory(category) {
   const videos = document.querySelectorAll('[data-category]');
+  const buttons = document.querySelectorAll('[onclick^="showCategory"]');
 
   videos.forEach(video => {
-    if (category === 'all' || video.dataset.category === category) {
-      video.style.display = 'block';
-    } else {
-      video.style.display = 'none';
-    }
+    video.style.display =
+      (category === 'all' || video.dataset.category === category)
+        ? 'block'
+        : 'none';
+  });
+
+  buttons.forEach(button => {
+    const isActive = button.getAttribute('onclick').includes("'" + category + "'");
+    button.style.background = isActive ? '#7c3cff' : '#222';
+    button.style.borderColor = isActive ? '#7c3cff' : '#555';
   });
 }
 </script>
