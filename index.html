@@ -43,15 +43,33 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:#8f8fa1;font-size:1
     Watch • Enjoy • Be Inspired
   </p>
 
-  <div style="display:flex;gap:10px;overflow-x:auto;padding:10px 5px 18px;scrollbar-width:none;">
-  <button type="button" onclick="showCategory('all')" style="background:#7c3cff;color:white;border:0;border-radius:25px;padding:10px 20px;white-space:nowrap;cursor:pointer;font-weight:600;">All</button>
+  <div style="display:flex;gap:10px;overflow-x:auto;padding:12px 5px 18px;scrollbar-width:none;">
 
-  <button type="button" onclick="showCategory('shorts')" style="background:#222;color:white;border:1px solid #555;border-radius:25px;padding:10px 20px;white-space:nowrap;cursor:pointer;font-weight:600;">Shorts</button>
+  <button type="button" onclick="showCategory('all')"
+    style="background:linear-gradient(135deg,#9b5cff,#6d28d9);color:white;border:1px solid #b98aff;border-radius:25px;padding:11px 20px;white-space:nowrap;cursor:pointer;font-weight:700;box-shadow:0 0 18px rgba(155,92,255,.35);">
+    ✨ All
+  </button>
 
-  <button type="button" onclick="showCategory('ai')" style="background:#222;color:white;border:1px solid #555;border-radius:25px;padding:10px 20px;white-space:nowrap;cursor:pointer;font-weight:600;">AI Content</button>
-    <button onclick="showCategory('ai-photos')">🎨 AI Photos</button>
+  <button type="button" onclick="showCategory('shorts')"
+    style="background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:25px;padding:11px 20px;white-space:nowrap;cursor:pointer;font-weight:600;">
+    🎬 Shorts
+  </button>
 
-  <button type="button" onclick="showCategory('story')" style="background:#222;color:white;border:1px solid #555;border-radius:25px;padding:10px 20px;white-space:nowrap;cursor:pointer;font-weight:600;">Story</button>
+  <button type="button" onclick="showCategory('ai')"
+    style="background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:25px;padding:11px 20px;white-space:nowrap;cursor:pointer;font-weight:600;">
+    🤖 AI Content
+  </button>
+
+  <button type="button" onclick="showCategory('ai-photos')"
+    style="background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:25px;padding:11px 20px;white-space:nowrap;cursor:pointer;font-weight:600;">
+    🎨 AI Photos
+  </button>
+
+  <button type="button" onclick="showCategory('story')"
+    style="background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:25px;padding:11px 20px;white-space:nowrap;cursor:pointer;font-weight:600;">
+    📖 Story
+  </button>
+
 </div>
 
 <!-- Shorts Video -->
