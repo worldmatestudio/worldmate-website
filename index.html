@@ -139,27 +139,43 @@ Post Comment
 </div>                                                              
 </div>
 <!-- Story Video -->
-<div data-category="story" style="max-width:600px;margin:20px auto;background:linear-gradient(180deg,#151520,#0f0f17);border:1px solid #4930a0;border-radius:22px;padding:12px;box-shadow:0 12px 35px rgba(0,0,0,.4);transition:.25s;">
+<div data-category="story"
+style="max-width:600px;margin:20px auto;background:linear-gradient(145deg,#11111c,#080812);border:1px solid #7b3cff;border-radius:24px;overflow:hidden;box-shadow:0 0 25px rgba(123,60,255,.35);">
 
-  <video controls width="100%" style="display:block;border-radius:15px;">
-    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-  </video>
+  <div style="padding:8px;background:linear-gradient(90deg,#7b3cff,#39c6ff,#7b3cff);"></div>
 
-  <h3 style="color:white;font-size:22px;margin:18px 5px 8px;">
-    📖 Worldmate Story
-  </h3>
+  <div style="padding:18px 18px 22px;">
 
-  <p style="color:#bbb;font-size:16px;line-height:1.5;margin:5px;">
-    Cinematic stories and creative adventures from Worldmate.
-  </p>
+    <video controls width="100%"
+    style="display:block;width:100%;border-radius:18px;background:#000;box-shadow:0 8px 25px rgba(0,0,0,.5);">
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    </video>
 
-</div>
-      <span>👁️ 1.2K views</span>
-      <span>📅 New</span>
+    <div style="margin-top:16px;display:inline-block;padding:7px 14px;border-radius:20px;background:linear-gradient(90deg,#7b3cff,#39c6ff);color:white;font-weight:800;font-size:13px;letter-spacing:.5px;">
+      🎬 EPISODE 01
     </div>
 
-  </div>
+    <h3 style="color:white;font-size:27px;margin:14px 0 8px;font-weight:800;">
+      📖 Worldmate Story
+    </h3>
 
+    <p style="color:#c7c7d4;font-size:16px;line-height:1.6;margin:0 0 15px;">
+      Cinematic stories, magical adventures and unforgettable journeys from Worldmate.
+    </p>
+
+    <div style="display:flex;gap:20px;color:#aaa;font-size:14px;margin-bottom:18px;">
+      <span>👁 1.2K views</span>
+      <span>💬 0 comments</span>
+    </div>
+
+    <button type="button"
+    onclick="this.closest('[data-category=story]').querySelector('video').play()"
+    style="width:100%;padding:14px;border:0;border-radius:30px;background:linear-gradient(90deg,#7b3cff,#4b6cff);color:white;font-size:17px;font-weight:800;box-shadow:0 0 18px rgba(123,60,255,.5);">
+      ▶ Watch Story →
+    </button>
+
+  </div>
+</div>
 </section>
 
 
