@@ -167,6 +167,13 @@ style="max-width:600px;margin:20px auto;background:linear-gradient(145deg,#11111
       <span>👁 1.2K views</span>
       <span>💬 0 comments</span>
     </div>
+    <div style="margin-bottom:18px;">
+  <button type="button"
+  onclick="this.classList.toggle('liked'); this.innerHTML=this.classList.contains('liked')?'❤️ Liked':'♡ Like';"
+  style="padding:10px 18px;border:1px solid #7b3cff;border-radius:25px;background:#11111c;color:white;font-size:15px;font-weight:700;">
+    ♡ Like
+  </button>
+</div>
 
     <button type="button"
     onclick="this.closest('[data-category=story]').querySelector('video').play()"
