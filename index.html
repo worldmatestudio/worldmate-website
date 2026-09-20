@@ -564,7 +564,10 @@ const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_-D3ExdPZYqV68KNZ-n8hGw_rnFVGO1D
                                                                             
   SUPABASE_PUBLISHABLE_KEY
 );
-    window.worldmateSupabase = supabaseClient;
+    window.worldmateSupabase = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
 async function uploadVideo() {
 const file = document.getElementById('creatorVideoFile').files[0];
 
