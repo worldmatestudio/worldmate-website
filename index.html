@@ -401,7 +401,7 @@ async function previewAIPhoto() {
     if (!response.ok) {
       throw new Error(data.error?.message || "Upload failed");
     }
-const { error: dbError } = await supabaseClient
+const { error: dbError } = await window.worldmateSupabase
   .from("ai_photos")
   .insert([{ image_url: data.secure_url }]);
 
@@ -561,6 +561,7 @@ const SUPABASE_URL = 'https://lmvhiebuztixhjwhcxe.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_-D3ExdPZYqV68KNZ-n8hGw_rnFVGO1D";
   https://lmvhiebuztixhjwhcxe.supabase.co
  const supabaseClient = window.supabaseClient =  window.supabase.createClient(https://"'https://lmvhiebuztixhjhwhcxe.supabase.co'", "sb_publishable_-D3ExdPZYqV68KNZ-n8hGw_rnFVGO1D");
+          window.worldmateSupabase = supabaseClient;                                                                    
   SUPABASE_PUBLISHABLE_KEY
 );
 async function uploadVideo() {
