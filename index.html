@@ -401,7 +401,7 @@ async function previewAIPhoto() {
     if (!response.ok) {
       throw new Error(data.error?.message || "Upload failed");
     }
-const { error: dbError } = await supabaseClient
+const { error: dbError } = await window.supabaseClient
   .from("ai_photos")
   .insert([{ image_url: data.secure_url }]);
 
