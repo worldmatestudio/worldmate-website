@@ -331,31 +331,6 @@ function showCategory(category) {
 
 }
 
-async function loadAIPhotos() {
-  const gallery = document.getElementById("aiPhotosGallery");
-
-  if (!gallery) return;
-
-  const { data, error } = await supabaseClient
-    .from("ai_photos")
-    .select("image_url")
-    .order("created_at", { ascending: false });
-
-  if (error) {
-    console.log("AI Photos loading error:", error.message);
-    return;
-  }
-
-  gallery.innerHTML = "";
-
-  data.forEach(photo => {
-    gallery.insertAdjacentHTML(
-      "beforeend",
-      `<img src="${photo.image_url}"
-        style="width:100%;border-radius:16px;border:1px solid #4930a0;box-shadow:0 8px 25px rgba(0,0,0,.35);">`
-    );
-  });
-}
 </script>
   <section style="padding:30px 15px;">
   <h2 style="color:white;text-align:center;">📚 Worldmate E-Books</h2>
