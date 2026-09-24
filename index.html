@@ -502,6 +502,20 @@ function toggleLike(buttonId) {
   button.dataset.likes = count;
   button.innerHTML = "❤️ Like " + count;
 }
+  function countView(videoId, countId) {
+  const video = document.getElementById(videoId);
+  const counter = document.getElementById(countId);
+
+  if (video.dataset.viewed === "true") return;
+
+  video.dataset.viewed = "true";
+
+  let count = parseInt(counter.dataset.views || "0");
+  count++;
+
+  counter.dataset.views = count;
+  counter.textContent = "👁️ " + count + " views";
+}
 </script>
 
 <main id="home">
