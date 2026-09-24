@@ -484,8 +484,28 @@ document.getElementById("ebookCover").addEventListener("change", function () {
 <button id="loginBtn" class="btn" onclick="document.getElementById('authModal').style.display='flex'">Log In</button>
 <button id="signupBtn" class="btn" onclick="authMode='signup'; document.getElementById('authModal').style.display='flex'; document.getElementById('authTitle').textContent='Create Account'; document.getElementById('authSubmit').textContent='Create Account';">Create Account</button>
 <button id="logoutBtn" class="btn" onclick="logout()" style="display:none;">Log Out</button></div></nav>
+<button id="logoutBtn" class="btn" onclick="logout()" style="display:none;">Log Out</button></div></nav>
+
+<script>
+function toggleLike(buttonId) {
+  const button = document.getElementById(buttonId);
+  let count = parseInt(button.dataset.likes || "0");
+
+  if (button.dataset.liked === "true") {
+    count--;
+    button.dataset.liked = "false";
+  } else {
+    count++;
+    button.dataset.liked = "true";
+  }
+
+  button.dataset.likes = count;
+  button.innerHTML = "❤️ Like " + count;
+}
+</script>
 
 <main id="home">
+
 <section class="hero"><div class="container">
 <div class="badge">🤖 AI CREATIVE WORLD</div>
 <h1>Where <span>Imagination</span> Becomes Reality.</h1>
