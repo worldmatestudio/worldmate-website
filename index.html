@@ -139,7 +139,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:#8f8fa1;font-size:1
 </div>
 <!-- Second AI Video -->
 <div data-category="ai" style="max-width:600px;margin:15px auto;background:#17152b;padding:15px;border-radius:20px;">
-  <video controls width="100%" style="border-radius:15px;">
+  <video id="video2" controls width="100%" onplay="countView('video2','viewCount2')" style="border-radius:15px;">
     <source src="https://res.cloudinary.com/schyhric/video/upload/FB_VID_6279520889015392347.mp4" type="video/mp4">
   </video>
   <h3 style="margin:10px 0 5px;font-size:20px;">AI Content</h3>
