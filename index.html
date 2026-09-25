@@ -660,7 +660,6 @@ function closeAuth() {
 function switchAuth() {
   openAuth(authMode === 'login' ? 'signup' : 'login');
 }
-
 async function handleAuth() {
   const email = document.getElementById('authEmail').value.trim();
   const password = document.getElementById('authPassword').value;
@@ -680,7 +679,7 @@ async function handleAuth() {
 
   try {
     if (authMode === 'signup') {
-      const result = await supabaseClient.auth.signUp({
+      const result = await window.supabaseClient.auth.signUp({
         email: email,
         password: password
       });
@@ -692,7 +691,7 @@ async function handleAuth() {
 
       message.textContent = 'Account created! Check your email.';
     } else {
-      window.supabaseClient.auth.signInWithPassword
+      const result = await window.supabaseClient.auth.signInWithPassword({
         email: email,
         password: password
       });
@@ -706,8 +705,8 @@ async function handleAuth() {
       closeAuth();
     }
   } catch (err) {
-  message.textContent = 'Error: ' + err.message;
-}
+    message.textContent = 'Error: ' + err.message;
+  }
 }
   function saveEbook() {
   alert('EBOOK FUNCTION WORKS');
