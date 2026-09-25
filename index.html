@@ -706,8 +706,8 @@ async function handleAuth() {
       closeAuth();
     }
   } catch (err) {
-    message.textContent = 'Connection error. Please try again.';
-  }
+  message.textContent = 'Error: ' + err.message;
+}
 }
   function saveEbook() {
   alert('EBOOK FUNCTION WORKS');
