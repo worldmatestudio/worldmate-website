@@ -680,7 +680,7 @@ async function handleAuth() {
 
   try {
     if (authMode === 'signup') {
-      const result = await supabaseClient.auth.signUp({
+      const result = await window.supabaseClient.auth.signUp({
         email: email,
         password: password
       });
@@ -692,7 +692,7 @@ async function handleAuth() {
 
       message.textContent = 'Account created! Check your email.';
     } else {
-      const result = await supabaseClient.auth.signInWithPassword({
+      window.supabaseClient.auth.signInWithPassword
         email: email,
         password: password
       });
