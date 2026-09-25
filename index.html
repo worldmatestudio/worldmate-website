@@ -679,6 +679,7 @@ async function handleAuth() {
 
   try {
     if (authMode === 'signup') {
+      console.log("Supabase client:", window.supabaseClient);
       const result = await window.supabaseClient.auth.signUp({
         email: email,
         password: password
