@@ -680,7 +680,7 @@ async function handleAuth() {
 
   try {
     if (authMode === 'signup') {
-      const result = await window.supabaseClient.auth.signUp({
+      const result = await supabaseClient.auth.signUp({
         email: email,
         password: password
       });
