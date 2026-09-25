@@ -608,7 +608,7 @@ const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_-D3ExdPZYqV68KNZ-n8hGw_rnFVGO1D
   SUPABASE_URL,
 SUPABASE_PUBLISHABLE_KEY
 );
-    console.log("WORLD MATE SUPABASE:", window.supabaseClient);
+    alert("Supabase client: " + (window.supabaseClient ? "WORKING" : "NOT CREATED"));
     window.worldmateSupabase = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
