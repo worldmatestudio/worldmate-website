@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-console.log("SUPABASE LIBRARY:", window.supabase);
-</script>
+
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -608,7 +607,7 @@ const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_-D3ExdPZYqV68KNZ-n8hGw_rnFVGO1D
   SUPABASE_URL,
 SUPABASE_PUBLISHABLE_KEY
 );
-    alert("Supabase client: " + (window.supabaseClient ? "WORKING" : "NOT CREATED"));
+    
     window.worldmateSupabase = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
